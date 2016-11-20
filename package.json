@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/swahed/catapult/issues"
   },
-  "homepage": "https://github.com/swahed/catapult#readme"
+  "homepage": "https://github.com/swahed/catapult#readme",
+  "dependencies": {
+    "browser-sync": "^2.18.2",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-live-server": "0.0.30",
+    "react": "^15.4.0"
+  }
 }
