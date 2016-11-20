@@ -18,10 +18,13 @@
   "homepage": "https://github.com/swahed/catapult#readme",
   "dependencies": {
     "browser-sync": "^2.18.2",
+    "browserify": "^13.1.1",
     "ejs": "^2.5.2",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-live-server": "0.0.30",
-    "react": "^15.4.0"
+    "react": "^15.4.0",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
