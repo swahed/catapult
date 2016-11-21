@@ -16,12 +16,12 @@ module.exports = React.createClass({
 	},
 	render : function() {
 		return (
-			<div className={this.props.item.isPayed ? "payed" : ""}>
-				<div>
-					<h4>{this.props.item.name}; {this.props.item.date}</h4>
+			<div className="row">
+				<div className="six columns">
+					<h4 className={this.props.item.isPayed ? "payed" : ""}>{this.props.item.name}; {this.props.item.date}</h4>
 				</div>
 				<form className="three columns" onSubmit={this.togglePayed}>
-					<button>
+					<button className={this.props.item.isPayed ? "" : "button-primary"}>
 						{this.props.item.isPayed ? "Mark as unpayed" : "Mark as payed"}
 					</button>
 				</form>
