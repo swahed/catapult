@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/swahed/catapult#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "browser-sync": "^2.18.2",
     "browserify": "^13.1.1",
     "ejs": "^2.5.2",
@@ -24,6 +25,7 @@
     "guid": "0.0.12",
     "gulp": "^3.9.1",
     "gulp-live-server": "0.0.30",
+    "jquery": "^3.1.1",
     "moment": "^2.16.0",
     "react": "^0.14.8",
     "reactify": "^1.1.1",

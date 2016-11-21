@@ -1,30 +1,15 @@
 const dispatcher = require("./../dispatcher.js");
-const data = [
-	{
-		name : "Jutta",
-		date : "2011-11-11",
-		isPayed : false
-	},
-	{
-		name : "Peter",
-		date : "2015-11-11",
-		isPayed : false
-	},
-	{
-		name : "Klaus",
-		date : "2012-12-12",
-		isPayed : false
-	},
-	{
-		name : "Sabine",
-		date : "2013-01-01",
-		isPayed : false
-	}
-];
+var helper = require("./../helpers/resthelper.js");
 
 function TransferItemStore() {
-	const items = data;
+	let items = [];
 	const listeners =[];
+
+	helper.get("api/items")
+	.then(function(data){
+		items = data;
+		triggerListeners(items);
+	});
 
 	function getItems(){
 		return items;
@@ -33,6 +18,8 @@ function TransferItemStore() {
 	function addTransfer(item){
 		items.push(item);
 		triggerListeners(items);
+
+		helper.post("api/items", item);
 	}
 
 	function deleteTransfer(item) {
