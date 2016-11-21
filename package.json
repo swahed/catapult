@@ -24,6 +24,7 @@
     "guid": "0.0.12",
     "gulp": "^3.9.1",
     "gulp-live-server": "0.0.30",
+    "moment": "^2.16.0",
     "react": "^0.14.8",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"

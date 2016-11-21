@@ -1,4 +1,5 @@
 const React = require('react/addons');
+const moment = require('moment');
 const action = require('./../actions/transferActionItemCreator.jsx');
 
 module.exports = React.createClass({
@@ -18,7 +19,9 @@ module.exports = React.createClass({
 		return (
 			<div className="row">
 				<div className="six columns">
-					<h4 className={this.props.item.isPayed ? "payed" : ""}>{this.props.item.name}; {this.props.item.date}</h4>
+					<h4 className={this.props.item.isPayed ? "payed" : ""}>
+						{this.props.item.name} ({moment(this.props.item.date).locale("de").format("l")})
+					</h4>
 				</div>
 				<form className="three columns" onSubmit={this.togglePayed}>
 					<button className={this.props.item.isPayed ? "" : "button-primary"}>

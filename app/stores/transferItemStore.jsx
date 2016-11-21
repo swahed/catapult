@@ -1,23 +1,23 @@
 const dispatcher = require("./../dispatcher.js");
 const data = [
 	{
-		name : "Inge",
-		date : "11.11.11",
+		name : "Jutta",
+		date : "2011-11-11",
 		isPayed : false
 	},
 	{
-		name : "Joschi",
-		date : "15.11.11",
+		name : "Peter",
+		date : "2015-11-11",
 		isPayed : false
 	},
 	{
-		name : "Julia",
-		date : "12.12.12",
+		name : "Klaus",
+		date : "2012-12-12",
 		isPayed : false
 	},
 	{
-		name : "Herby",
-		date : "1.1.13",
+		name : "Sabine",
+		date : "2013-01-01",
 		isPayed : false
 	}
 ];
