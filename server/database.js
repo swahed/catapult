@@ -27,7 +27,7 @@ mongoose.connect('mongodb://localhost/catapult', function() {
 			date : "2013-01-01",
 			isPayed : false
 		}
-	];	
+	];
 
 	items.forEach(function(item){
 		new TransferItem(item).save(function (err) {

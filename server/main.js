@@ -11,7 +11,7 @@ app.get("/", function(req, res){
 	res.render("./../app/index.ejs");
 	
 
-	/* TODO: Prerender ot working
+	/* TODO: Prerender ot working 				<!--<%- reactoutput %>-->
 	var component = React.createFactory('./../app/components/TransferItemList.jsx');
 	TransferItem.find(function(error, data) { 
 	  	if (error) return console.error(error);
