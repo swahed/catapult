@@ -28,6 +28,8 @@ function TransferItemStore() {
 		});
 		items.splice(index, 1);
 		triggerListeners(items);
+
+		helper.del("api/items/" + item._id);
 	}
 
 	function setTransferPayed(item, isPayed) {
@@ -36,6 +38,8 @@ function TransferItemStore() {
 		})[0];
 		_item.isPayed = isPayed;
 		triggerListeners(items);
+
+		helper.patch("api/items/" + item._id, item);
 	}
 
 	function onChange (listener){

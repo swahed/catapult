@@ -1,34 +1,38 @@
 module.exports = function(app) {
-	const items = [
-		{
-			name : "Jutta",
-			date : "2011-11-11",
-			isPayed : false
-		},
-		{
-			name : "Peter",
-			date : "2015-11-11",
-			isPayed : false
-		},
-		{
-			name : "Klaus",
-			date : "2012-12-12",
-			isPayed : false
-		},
-		{
-			name : "Sabine",
-			date : "2013-01-01",
-			isPayed : false
-		}
-	];	
-
+	
+	const TransferItem = require('./../models/TransferItem.js');
 
 	app.route("/api/items")
 	.get(function(req, res) {
-		res.send(items);
+		TransferItem.find(function(error, data) { 
+			// TODO: not finding
+			console.log(data);
+		  	if (error) return console.error(error);
+			res.send(data);
+		});
 	}).post(function(req, res) {
-		var item = req.body;
-		items.push(item);
+		let item = req.body;
+		let transferItem = new TransferItem(item);
+		transferItem.save(function(error, data) {
+			res.status(300).send();
+		});
+	});
+
+	app.route("/api/items/:id")
+	.delete(function(req, res) {
+		TransferItem.findOne({
+			_id: req.params.id
+		}).remove();
+	})
+	.patch(function(req, res) { 
+		TransferItem.findOne({
+			_id: req.body._id
+		},function(error, doc){
+			for(let key in re.body){
+				doc[key] = req.body[key];
+			}
+			doc.save();
+			res.status(200).send();
+		});
 	});
 }
-
