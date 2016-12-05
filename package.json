@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/swahed/catapult#readme",
   "dependencies": {
+    "babel-register": "^6.18.0",
     "body-parser": "^1.15.2",
     "browser-sync": "^2.18.2",
     "browserify": "^13.1.1",
@@ -29,7 +30,11 @@
     "moment": "^2.16.0",
     "mongoose": "^4.7.0",
     "react": "^0.14.8",
+    "react-dom": "^0.14.8",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.16.0"
   }
 }

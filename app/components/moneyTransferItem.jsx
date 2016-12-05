@@ -1,5 +1,6 @@
 const React = require('react/addons');
 const moment = require('moment');
+require('moment/locale/de'); // Browserfy client workaround
 const action = require('./../actions/transferActionItemCreator.jsx');
 
 module.exports = React.createClass({
@@ -32,6 +33,6 @@ module.exports = React.createClass({
 					<button>&times;</button>
 				</form>
 			</div>
-		)
+		);
 	}
 });

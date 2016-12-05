@@ -1,10 +1,14 @@
 const mongoose = require('mongoose');
 const TransferItem = require('./models/TransferItem.js');
 
-mongoose.connect('mongodb://localhost/catapult', function() {
-	console.log('DB connected');
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/catapult');
 
-    //mongoose.connection.db.dropDatabase();
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'DB connection error:'));
+db.once('open', function() {
+	console.log('DB connected');
+    mongoose.connection.db.dropDatabase();
 
 	const items = [
 		{

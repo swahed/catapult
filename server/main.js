@@ -1,35 +1,30 @@
 const express = require("express");
-const app = new express();
+const server = new express();
 const parser = require("body-parser");
-const React = require('react/addons');
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
 const TransferItem = require('./models/TransferItem.js');
 
-// require("babel-register");
+require("babel-register");
 require("./database.js");
 
-app.get("/", function(req, res){
-	res.render("./../app/index.ejs");
-	
-
-	/* TODO: Prerender ot working 				<!--<%- reactoutput %>-->
-	var component = React.createFactory('./../app/components/TransferItemList.jsx');
+server.get("/", function(req, res){	
+  	const jsx = require('./../app/components/moneyTransfersList.jsx');
+	const component = React.createFactory(jsx);
 	TransferItem.find(function(error, data) { 
 	  	if (error) return console.error(error);
-		res.send(data);
+
+		const html = ReactDOMServer.renderToString(component({ 
+			transfers : data
+		}));
+
+		res.render('./../app/index.ejs', {reactOutput : html});
 	}); 
-
-	var generated = React.renderToString(component({ 
-		items : data
-	}));
-
-	res.render('./../app/index.ejs', { 
-		reactOutput : generated 
-	}); */
 })
 .use(express.static(__dirname + "/../.tmp"))
 .listen(7777);
 
-app.use(parser.json());
-app.use(parser.urlencoded({extended:false}));
+server.use(parser.json());
+server.use(parser.urlencoded({extended:false}));
 
-require("./routes/items.js")(app);
+require("./routes/items.js")(server);
